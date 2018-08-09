@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Vue.js</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="css/site.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div class="container" id="app">
+        <h1>Simple text two way data bind</h1>
+        <div class="row">
+            <div class="col-md-12">
+                <pre>&lt;p&gt;Sample text here...&lt;/p&gt;</pre>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon3">Value</span>
+                    <input type="text" class="form-control" v-model="message">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button" v-on:click="getMessage">Get defaut value</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row margin-5">
+            <div class="col-md-12">
+                <div class="alert alert-success" role="alert">
+                    <strong>Updated messagem:</strong> {{message}}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+<script src="js/index.js"></script>
+
+</html>
