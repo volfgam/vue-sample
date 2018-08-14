@@ -10,11 +10,13 @@
 </head>
 
 <body>
-    <div class="container" id="app">
+    <div class="container" id="app" style="display: none" v-show="loaded">
         <h1>Simple text two way data bind</h1>
         <div class="row">
             <div class="col-md-12">
-                <pre>&lt;p&gt;Sample text here...&lt;/p&gt;</pre>
+                <pre>
+
+                </pre>
             </div>
         </div>
         <div class="row">
@@ -35,11 +37,81 @@
                 </div>
             </div>
         </div>
+        <h1>Handler whit Json and Lists</h1>
+        <div class="row margin-5">
+            <div class="col-md-12">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon3">Name</span>
+                    <input type="text" class="form-control" v-model="name">
+                    <span class="input-group-addon" id="basic-addon3">Age</span>
+                    <input type="text" class="form-control" v-model="age">
+                    <span class="input-group-addon" id="basic-addon3">City</span>
+                    <input type="text" class="form-control" v-model="city" v-on:keydown.enter="addCustumer">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button" v-on:click="addCustumer">Add Custumer</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row margin-5">
+            <div class="col-md-12">
+                <button class="btn btn-primary" v-on:click="getData">Get custumer data</button>
+            </div>
+        </div>
+        <div class="row margin-5">
+            <div class="col-md-12">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th style="width: 99%;">Name</th>
+                            <th>Age</th>
+                            <th>City</th>
+                            <th ></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(custumer, index) in custumers">
+                            <td>
+                                {{custumer.name}}
+                            </td>
+                            <td>
+                                {{custumer.age}}
+                            </td>
+                            <td nowrap>
+                                {{custumer.city}}
+                            </td>
+                            <td>
+                                <button type="button" title="Remove" class="btn btn-danger" v-on:click.prevent="removeElement(index)">
+                                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <h1>Handler whit watchers</h1>
+        <div class="row margin-5">
+            <div class="col-md-12">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon3">Number to multiplicate</span>
+                    <input type="text" class="form-control" v-model="number">
+                </div>
+            </div>
+        </div>
+        <div class="row margin-5">
+            <div class="col-md-12">
+                <div class="alert alert-success" role="alert">
+                    <strong>Result:</strong> {{result}}
+                </div>
+            </div>
+        </div>
     </div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
     crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
 <script src="js/index.js"></script>
 
 </html>
