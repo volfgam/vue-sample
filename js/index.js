@@ -8,7 +8,12 @@ var app = new Vue({
         age: null,
         city: null,
         number: 0,
-        result: 0
+        result: 0,
+        showPapel: false,
+        ifPanel: false,
+        rawHtml: '<span class="label label-primary">Here is a label</span>',
+        isActive: true,
+        hasError: false
     },
     methods: {
         getMessage: function () {
@@ -36,9 +41,20 @@ var app = new Vue({
             var self = this;
             self.result = parseInt(number) * 5;
         },
-        removeElement: function (index){
+        removeElement: function (index) {
             this.custumers.splice(index, 1);
-            console.log(index);
+        },
+        showHidePanel: function () {
+            var self = this;
+            self.showPapel = !self.showPapel;
+        },
+        renderElement: function () {
+            var self = this;
+            self.ifPanel = !self.ifPanel;
+        },
+        setError: function () {
+            this.hasError = !this.hasError;
+            this.isActive = !this.isActive;
         }
     },
     watch: {
@@ -48,8 +64,9 @@ var app = new Vue({
             this.calculate(newNumber);
         }
     },
-    mounted: function() {
+    created: function () {
         this.loaded = true;
+        this.getData();
     }
 })
 

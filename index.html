@@ -12,13 +12,7 @@
 <body>
     <div class="container" id="app" style="display: none" v-show="loaded">
         <h1>Simple text two way data bind</h1>
-        <div class="row">
-            <div class="col-md-12">
-                <pre>
 
-                </pre>
-            </div>
-        </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="input-group">
@@ -66,7 +60,7 @@
                             <th style="width: 99%;">Name</th>
                             <th>Age</th>
                             <th>City</th>
-                            <th ></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -105,6 +99,61 @@
                     <strong>Result:</strong> {{result}}
                 </div>
             </div>
+        </div>
+        <h1>Using v-show</h1>
+        <div class="row margin-5">
+            <div class="col-md-12">
+                <button class="btn btn-primary" v-on:click="showHidePanel">
+                    <span class="glyphicon glyphicon-eye-open" aria-hidden="true" v-show="!showPapel"></span>
+                    <span class="glyphicon glyphicon-eye-close" aria-hidden="true" v-show="showPapel"></span>
+                </button>
+            </div>
+        </div>
+        <div class="panel panel-primary" v-show="showPapel">
+            <div class="panel-heading">Now you see me!</div>
+            <div class="panel-body">
+                click the button I'm shy
+            </div>
+        </div>
+        <h1>Using v-if</h1>
+        <div class="row margin-5">
+            <div class="col-md-12">
+                <button class="btn btn-primary" v-on:click="renderElement">
+                    <span class="glyphicon glyphicon-eye-open" aria-hidden="true" v-show="!ifPanel"></span>
+                    <span class="glyphicon glyphicon-eye-close" aria-hidden="true" v-show="ifPanel"></span>
+                </button>
+            </div>
+        </div>
+        <div class="panel panel-primary" v-if="ifPanel">
+            <div class="panel-heading">Now you see me!</div>
+            <div class="panel-body">
+                click the button I'm shy
+            </div>
+        </div>
+        <h1>Raw HTML</h1>
+        <div class="row">
+            <div class="col-md-12">
+                <pre>{{rawHtml}}</pre>
+            </div>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">v-html</div>
+            <div class="panel-body">
+                <span v-html="rawHtml"></span>
+                </p>
+            </div>
+        </div>
+        <h1>Class</h1>
+        <div class="row margin-5">
+            <div class="col-md-6">
+                <div class="btn " v-bind:class="{ 'btn-primary': isActive, 'btn-danger': hasError }">
+                    Message!
+                </div>
+            </div>
+            <div class="col-md-6">
+                <button class="btn btn-primary" v-on:click="setError">Error</button>
+            </div>
+
         </div>
     </div>
 </body>
